@@ -1,13 +1,6 @@
 <?php
-    function formulario1(){
-        echo '
-            <h3>¿Qué desea hacer: CONSULTAR datos / dar de ALTA / dar de BAJA datos / MODIFICAR datos ?</h3>
-            <p><a href="php/consultar.php">1.- CONSULTAR DATOS</a></p>
-            <p><a href="php/alta.php">2.- DAR DE ALTA DATOS</a></p>
-            <p><a href="php/baja.php">3.- DAR DE BAJA DATOS</a></p>
-            <p><a href="php/modificar.php">4.- MODIFICAR DATOS</a></p>
-        ';
-    }
+    require("php/conexion.php");
+    $conexion = new mysqli(SERVIDOR, USUARIO, PW, BD);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,8 +9,22 @@
     <title>Gestión Empleados</title>
 </head>
 <body>
-    <?php
-        formulario1();
-    ?>
+<h1>Listado</h1>
+    <form action="index.php" method="post">
+        <label for="baja">Usuarios mostrados: </label><br><br>     
+        <?php
+            $consulta = "SELECT IdEmpleados, Nombre, DNI FROM empleados ";
+            $resultado = $conexion->query($consulta);
+            while ($fila = $resultado->fetch_assoc()) {
+                $id = $fila['IdEmpleados'];
+                $nombre = $fila['Nombre'];
+                $dni = $fila['DNI'];
+                echo "<label value=$id>$nombre con DNI: $dni</label>&nbsp&nbsp&nbsp";
+                echo '<a href="php/operaciones.php?id='.$id.'&op=b"><input type="button" name="borrar" value="Borrar"></a>&nbsp&nbsp';
+                echo '<a href="php/operaciones.php?id='.$id.'&op=m"><input type="button" name="modificar" value="Modificar"></a><br><br>';
+            }
+        ?>
+        <a href="php/operaciones.php?op=a"><input type="button" name="añadir" value="Añadir"></a>
+    </form>  
 </body>
 </html>
