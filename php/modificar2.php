@@ -30,7 +30,7 @@
             echo '<label for="telefono">Teléfono: </label>';
             echo '<input type="text" name="telefono" value="'.$fila['Tlfn'].'"><br><br>';
             echo '<input type="submit" name="modificar" value="Modificar"><br><br>';            
-        ?>       
+        ?>
         <a href="../index.php"><input type="button" name="volver" value="Volver"></a>
     </form>
     <?php
