@@ -20,17 +20,17 @@
     </h1>
     <form action="modificar2.php" method="post">
         <?php
-            echo '<input type="hidden" name="id" value="'.$_GET['id'].'">'
-        ?>        
-        <label for="dni">DNI: </label>
-        <input type="text" name="dni"><br><br>
-        <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre"><br><br>
-        <label for="correo">Correo: </label>
-        <input type="text " name="correo"><br><br>
-        <label for="telefono">Teléfono: </label>
-        <input type="text" name="telefono"><br><br>
-        <input type="submit" name="modificar" value="Modificar"><br><br>
+            echo '<input type="hidden" name="id" value="'.$_GET['id'].'">';
+            echo '<label for="dni">DNI: </label>';
+            echo '<input type="text" name="dni" value="'.$fila['DNI'].'"><br><br>';
+            echo '<label for="nombre">Nombre: </label>';
+            echo '<input type="text" name="nombre" value="'.$fila['Nombre'].'"><br><br>';
+            echo '<label for="correo">Correo: </label>';            
+            echo '<input type="text " name="correo" value="'.$fila['Correo'].'"><br><br>';
+            echo '<label for="telefono">Teléfono: </label>';
+            echo '<input type="text" name="telefono" value="'.$fila['Tlfn'].'"><br><br>';
+            echo '<input type="submit" name="modificar" value="Modificar"><br><br>';            
+        ?>       
         <a href="../index.php"><input type="button" name="volver" value="Volver"></a>
     </form>
     <?php

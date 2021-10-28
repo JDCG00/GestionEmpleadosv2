@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Gestión Empleados</title>
+    <link rel="stylesheet" href="./css/estilo.css">
 </head>
 <body>
 <h1>Listado</h1>
@@ -14,7 +15,7 @@
         <label for="baja">Usuarios mostrados: </label><br><br>     
         <?php
             $consulta = "SELECT IdEmpleados, Nombre, DNI FROM empleados ";
-            $resultado = $conexion->query($consulta);
+            $resultado = $conexion->query($consulta); 
             while ($fila = $resultado->fetch_assoc()) {
                 $id = $fila['IdEmpleados'];
                 $nombre = $fila['Nombre'];
