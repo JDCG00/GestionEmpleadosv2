@@ -31,6 +31,6 @@
             $resultado2 = $conexion->query($consulta2);
             header("Location: baja.php ");
         }
-    ?>  
+    ?>
 </body>
 </html>
